@@ -1,0 +1,20 @@
+header.header
+    .header__top
+        .container
+            .socials
+                ul.socials__list
+                    - var socials = ['vk', 'fb', 'tw']
+                    each social in socials
+                        li.socials__item
+                            a(href="#" class="socials__link socials__link_" + social)= social
+    .header__center
+        .container
+             .logo
+             .search
+             ul.menu__top
+                 - var menus = ['Карта проезда', 'История заказов', 'Корзина']
+                 each menu in menus
+                      li.menu__top__item
+                          a(href="#" class="menu__top__link")= menu
+    .header__bottom
+        .container

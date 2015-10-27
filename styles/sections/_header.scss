@@ -1,0 +1,58 @@
+@mixin get-sprite ($map, $icon) {
+	$sprite-image: sprite-file($map, $icon);
+	$sprite-map: sprite-url($map);
+	$sprite-position: sprite-position($map, $icon);
+
+	background: $sprite-map $sprite-position no-repeat;
+
+	$sprite-height: image-height($sprite-image);
+	$sprite-width: image-width($sprite-image);
+
+	height: $sprite-height;
+	width: $sprite-width;
+}
+
+//$icons-layout: horizontal;
+//$icons-spacing: 70px;
+//@import "icons/*.png";
+
+$socials: vk, tw, fb;
+
+
+$socials-map: sprite-map('icons/*.png', $spacing: 70px);
+
+
+@each $social in $socials {
+	.socials__link_#{$social} {
+		@include get-sprite($socials-map, $social);
+	}
+}
+
+.header__top {
+  width: 100%;
+  height: 77px;
+  background-color: white;
+  box-shadow: 0 2px 0 #ebedef;
+}
+
+
+$social-background-top: #333;
+
+.socials {
+  width: 116px;
+  float: left;
+  margin: 25px auto;
+}
+
+.socials__item {
+  display: inline-block;
+}
+
+.socials__link {
+  display: block;
+  background-color:$social-background-top;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  margin-right: 10px;
+}
